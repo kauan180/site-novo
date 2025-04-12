@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Títulos do Brasil - Copa do Mundo</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #000;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .tabs {
+            display: flex;
+            justify-content: center;
+            background-color: #111;
+            padding: 15px;
+            gap: 15px;
+            border-bottom: 4px solid #ffcc00;
+        }
+        .tab {
+            padding: 15px 25px;
+            cursor: pointer;
+            background: #333;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: all 0.3s ease-in-out;
+        }
+        .tab:hover {
+            background: #ffcc00;
+            color: black;
+            transform: scale(1.1);
+        }
+        .content {
+            display: none;
+            padding: 40px 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s, transform 0.5s;
+            border-radius: 15px;
+        }
+        .active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        img {
+            max-width: 70%;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <h1>Títulos do Brasil na Copa do Mundo</h1>
+    <div class="tabs">
+        <div class="tab" onclick="showTab(1958)">1958</div>
+        <div class="tab" onclick="showTab(1962)">1962</div>
+        <div class="tab" onclick="showTab(1970)">1970</div>
+        <div class="tab" onclick="showTab(1994)">1994</div>
+        <div class="tab" onclick="showTab(2002)">2002</div>
+    </div>
+    
+    <div id="1958" class="content active">
+        <h2>1958 - O Primeiro Título</h2>
+        <p>O Brasil conquistou seu primeiro título mundial na Suécia, vencendo a final contra os anfitriões por 5 a 2. Foi o início da lenda Pelé e a ascensão da seleção brasileira no cenário mundial.</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Pele_1958.jpg" alt="Pelé 1958">
+    </div>
+    
+    <div id="1962" class="content">
+        <h2>1962 - O Bicampeonato</h2>
+        <p>Mesmo com a lesão de Pelé, Garrincha assumiu o protagonismo e levou o Brasil ao segundo título consecutivo, vencendo a Tchecoslováquia por 3 a 1 na final. A equipe mostrou grande força e habilidade.</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Garrincha_1962.jpg" alt="Garrincha 1962">
+    </div>
+    
+    <div id="1970" class="content">
+        <h2>1970 - A Seleção Mágica</h2>
+        <p>Considerado o melhor time de todos os tempos, o Brasil, liderado por Pelé, Tostão e Jairzinho, derrotou a Itália por 4 a 1 na final no México e conquistou o tricampeonato com futebol arte.</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Brazilian_team_1970.jpg" alt="Brasil 1970">
+    </div>
+    
+    <div id="1994" class="content">
+        <h2>1994 - O Tetracampeonato</h2>
+        <p>Nos Estados Unidos, a final contra a Itália terminou em um empate sem gols e foi decidida nos pênaltis, com Roberto Baggio errando a cobrança decisiva. Romário e Bebeto brilharam nessa campanha.</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d6/Brazil_1994_World_Cup.jpg" alt="Brasil 1994">
+    </div>
+    
+    <div id="2002" class="content">
+        <h2>2002 - O Pentacampeonato</h2>
+        <p>Com Ronaldo Fenômeno brilhando e marcando dois gols na final contra a Alemanha, o Brasil conquistou seu quinto título na Copa do Japão-Coreia. Rivaldo e Ronaldinho também foram peças fundamentais.</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/32/Brazil_2002_World_Cup.jpg" alt="Brasil 2002">
+    </div>
+    
+    <script>
+        function showTab(year) {
+            document.querySelectorAll('.content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(year).classList.add('active');
+        }
+    </script>
+</body>
+</html>

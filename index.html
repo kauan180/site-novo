@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Página Inicial</title>
+    <link rel="stylesheet" href="estilo.css">
+    <style>
+        #content {
+            transition: opacity 0.4s ease;
+            opacity: 1;
+        }
+        #content.fade-out {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bem-vindo ao Site!</h1>
+    <ul>
+        <li><a href="#" onclick="loadPage('copas.html')">Títulos do Brasil na Copa</a></li>
+        <li><a href="#" onclick="loadPage('tecnologias.html')">Tecnologias Estudadas</a></li>
+        <li><a href="#" onclick="loadPage('explicacoes.html')">Explicações: FTP, JavaScript, Docker</a></li>
+    </ul>
+    <div id="content"></div>
+
+    <script>
+        function loadPage(page) {
+            const content = document.getElementById('content');
+            content.classList.add('fade-out');
+            setTimeout(() => {
+                fetch(page)
+                    .then(response => response.text())
+                    .then(data => {
+                        const bodyContent = data.match(/<body[^>]*>([\s\S]*)<\/body>/i)[1];
+                        content.innerHTML = bodyContent;
+                        content.classList.remove('fade-out');
+                    });
+            }, 400);
+        }
+
+        // Carrega uma página inicial
+        window.onload = () => loadPage('copas.html');
+    </script>
+</body>
+</html>
